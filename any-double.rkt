@@ -16,10 +16,10 @@
   (profile-thunk
    (thunk
     (let loop ()
-      (define l (place-channel-get ch))      
+      (define l (place-channel-get ch))
       (define l-double? (any-double? l))
       (place-channel-put ch l-double?)
       (loop)))
-   #:use-errortrace? #t
+   #:use-errortrace? #f
+   #:periodic-renderer (list 4 render)
    #:threads #t))
-    
